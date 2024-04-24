@@ -64,6 +64,6 @@ print()
 
 # Dump the PCRs
 print("PCRs from attestation document:")
-print("PCR 0: ", attestation_doc["pcrs"][0].hex())
-print("PCR 1: ", attestation_doc["pcrs"][1].hex())
-print("PCR 2: ", attestation_doc["pcrs"][2].hex())
+print("PCR 0:", attestation_doc["pcrs"][0].hex())
+print("PCR 1:", attestation_doc["pcrs"][1].hex())
+print("PCR 2:", attestation_doc["pcrs"][2].hex())
