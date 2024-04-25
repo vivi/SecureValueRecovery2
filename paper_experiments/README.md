@@ -114,3 +114,5 @@ Copy over the figures from the folder that the output specifies (it’s a timest
 Reference figures are located in:
 
 https://github.com/vivi/SecureValueRecovery2/tree/artifact/paper_experiments/reference_figures
+
+Given the setup of the artifact machine, you can expect the latencies to be much smaller than the ones reported in the paper because all of the enclaves are co-located on the same machine, instead of being geographically distributed. Thus, there is effectively no network latency.
