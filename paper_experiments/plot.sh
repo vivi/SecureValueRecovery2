@@ -4,6 +4,8 @@ set -x
 FOLDER_NAME=$1
 mkdir -p $FOLDER_NAME/fig
 
+gnuplot -e "folder='$FOLDER_NAME' ; outputname='$FOLDER_NAME/fig/5.pdf'" latency_throughput.gnuplot
+
 gnuplot -e "folder='$FOLDER_NAME/nitro/leader' ; outputname='$FOLDER_NAME/fig/6a.pdf'" latency_cdf_restore_gte5_scriptable.gnuplot
 gnuplot -e "folder='$FOLDER_NAME/nitro/follower' ; outputname='$FOLDER_NAME/fig/6b.pdf'" latency_cdf_restore_gte5_scriptable.gnuplot
 

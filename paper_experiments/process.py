@@ -49,6 +49,12 @@ RUN = args.run
 OUT_FOLDER = f"{FOLDER}/{RUN}"
 print(OUT_FOLDER)
 os.makedirs(OUT_FOLDER, exist_ok=True)
+
+if RUN == "follower":
+    with open(f"{FOLDER}/latency_v_throughput_processed.csv", "w") as f:
+        f.write(",create,,restore,\n")
+        f.write(",latency,throughput,latency,throughput\n")
+
 for i in [5, 10, 20, 50, 100]:
     measurements = {
         "create": [],
@@ -60,6 +66,11 @@ for i in [5, 10, 20, 50, 100]:
         m = parse_csv(file_path)
         measurements["create"].extend(m["create"])
         measurements["restore"].extend(m["restore"])
+        measurements["create throughput"] = m["create throughput"]
+        measurements["restore throughput"] = m["restore throughput"]
+        measurements["create_mean"] = m["create_mean"]
+        measurements["restore_mean"] = m["restore_mean"]
+
     print(i, "AVERAGE CREATE LATENCY", np.mean(measurements["create"]))
     print(i, "AVERAGE RESTORE LATENCY", np.mean(measurements["restore"]))
     # continue
@@ -71,3 +82,10 @@ for i in [5, 10, 20, 50, 100]:
     cdf = get_cdf(measurements["restore"])
     out_file = f"{OUT_FOLDER}/cdf_p{i}_restore.csv"
     np.savetxt(out_file, cdf, delimiter=",")
+
+    print(measurements)
+    if RUN == "follower":
+        with open(f"{FOLDER}/latency_v_throughput_processed.csv", "a") as f:
+            f.write(
+                f'{i},{measurements["create_mean"]},{measurements["create throughput"]},{measurements["restore_mean"]},{measurements["restore throughput"]}\n'
+            )
