@@ -56,6 +56,12 @@ done
 mkdir -p $FOLDER_NAME/e2e
 ./svr3-benchmark-client --password pwd123 --statfile "${FOLDER_NAME}/e2e_latency_breakdown.csv --enclave-secret AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 
+python3 process.py $FOLDER_NAME/sgx leader
+python3 process.py $FOLDER_NAME/sgx follower
+python3 process.py $FOLDER_NAME/nitro leader
+python3 process.py $FOLDER_NAME/nitro follower
+python3 process_e2e.py $FOLDER_NAME/e2e follower
+
 ./plot.sh $FOLDER_NAME
 
 echo "Benchmarks are in $FOLDER_NAME".
