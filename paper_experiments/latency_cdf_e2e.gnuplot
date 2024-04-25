@@ -18,6 +18,7 @@ set xlabel "E2E Latency (ms)"
 #set xtics 20
 set yrange[-0.01:1.01]
 #set xrange[50:2200]
+set xrange[1:100]
 # set xtics 400
 # set xtics 5
 #set xrange[:40]

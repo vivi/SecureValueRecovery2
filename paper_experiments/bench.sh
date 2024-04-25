@@ -65,5 +65,5 @@ python3 process_e2e.py $FOLDER_NAME/e2e
 
 ./plot.sh $FOLDER_NAME
 
-echo "Benchmarks are in $FOLDER_NAME"
-echo "Figures are in $FOLDER_NAME/fig"
+echo "Benchmarks are in `pwd`/$FOLDER_NAME"
+echo "Figures are in `pwd`/$FOLDER_NAME/fig"

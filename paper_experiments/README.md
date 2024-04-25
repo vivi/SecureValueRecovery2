@@ -85,6 +85,8 @@ This script runs the benchmarks and produces plots:
 
 ```
 
+It will take approx 6 min to run. 
+
 Example output:
 
 ```sh
