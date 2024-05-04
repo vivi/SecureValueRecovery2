@@ -11,7 +11,7 @@ mkdir -p $FOLDER_NAME/e2e
 
 ./svr3-staging-client --password pwd123 --statfile "${FOLDER_NAME}/e2e/e2e_latency_breakdown.csv" --authpwd osdi24artifact
 
-python3 process_e2e.py $FOLDER_NAME/e2e
+python3 process_e2e_staging.py $FOLDER_NAME/e2e
 
 ./plot_staging.sh $FOLDER_NAME
 
