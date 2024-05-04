@@ -107,7 +107,22 @@ Copy over the figures from the folder that the output specifies (it’s a timest
 
 ## Staging cluster
 
-**We are currently getting internal clearance so that the artifact evaluation committee can evaluate the E2E numbers from the staging cluster. That should be available within the next week.**
+To replicate numbers from our live staging cluster, run:
+```sh
+./bench_staging.sh
+```
+It will take approx. 3 min to run.
+
+Under the hood, it authenticates through an AWS Lambda using a password that is only valid for the duration of the artifact evaluation period. This returns authentication tokens to the client, which the client uses to connect to the staging cluster.
+
+Example output:
+```sh
++ echo 'Benchmarks are in /home/artifact/SecureValueRecovery2/paper_experiments/2024-05-04_22-58-47_staging'
+Benchmarks are in /home/artifact/SecureValueRecovery2/paper_experiments/2024-05-04_22-58-47_staging
+++ pwd
++ echo 'Figures are in /home/artifact/SecureValueRecovery2/paper_experiments/2024-05-04_22-58-47_staging/fig'
+Figures are in /home/artifact/SecureValueRecovery2/paper_experiments/2024-05-04_22-58-47_staging/fig
+```
 
 ## Reference figures
 
@@ -116,3 +131,5 @@ Reference figures are located in:
 https://github.com/vivi/SecureValueRecovery2/tree/artifact/paper_experiments/reference_figures
 
 Given the setup of the artifact machine, you can expect the latencies to be much smaller than the ones reported in the paper because all of the enclaves are co-located on the same machine, instead of being geographically distributed. Thus, there is effectively no network latency.
+
+The staging E2E latencies are currently higher than those reported in the paper draft. This is because our staging cluster has been updated since submisison time to globally distribute the GCP cluster latency. Thus, the increase comes from the increased network latency between the servers on the GCP server. The camera ready version of the paper will be updated to reflect this updated deployment.
