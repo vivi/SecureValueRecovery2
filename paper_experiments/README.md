@@ -14,6 +14,8 @@ Due to the overhead and costs in setting up another staging cluster distributed 
 
 We believe that the artifact machine’s setup, though not identical to the setup reported in the paper, is still sufficient to faithfully reproduce the main results in the paper.
 
+**Update, 05/04/24:** We have also made the internal staging cluster available for the artifact evaluation committee to run. Instructions for running the staging cluster's E2E evaluation are in the [Staging cluster](#staging-cluster) section.
+
 **All binaries are already built on the artifact machine, please do not `rm -rf` anything!**
 
 # Artifact Evaluation
