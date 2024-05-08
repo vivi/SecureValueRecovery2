@@ -9,7 +9,7 @@
 # System setup
 Due to the overhead and costs in setting up another staging cluster distributed across multiple enclave types and replica clusters within each enclave type (and making this available to those external to Signal), the machine that the artifact committee has access to is slightly different from what is deployed on staging at Signal (graphs/numbers the paper reports):
 
-- The artifact machine has 3 nitro enclaves and 3 SGX simulation-mode enclaves, all on the same machine.wThe system has been prefilled with 1M users.
+- The artifact machine has 3 nitro enclaves and 3 SGX simulation-mode enclaves, all on the same machine. The system has been prefilled with 1M users.
 - The paper’s experimental setup hits what is deployed on staging at Signal (3 Nitro enclaves, 3 SGX enclaves, 3 AMD SEV-SNP enclaves, all geographically distributed across different datacenters)
 
 We believe that the artifact machine’s setup, though not identical to the setup reported in the paper, is still sufficient to faithfully reproduce the main results in the paper.
@@ -42,7 +42,7 @@ Get the root certificate from AWS:
 ```sh
 wget https://aws-nitro-enclaves.amazonaws.com/AWS_NitroEnclaves_Root-G1.zip
 
-gunzip AWS_NitroEnclaves_Root-G1.zip
+unzip AWS_NitroEnclaves_Root-G1.zip
 
 rm AWS_NitroEnclaves_Root-G1.zip
 
@@ -115,7 +115,7 @@ To replicate numbers from our live staging cluster, run:
 ```
 It will take approx. 3 min to run.
 
-Under the hood, it authenticates through an AWS Lambda using a password that is only valid for the duration of the artifact evaluation period. This returns authentication tokens to the client, which the client uses to connect to the staging cluster.
+Under the hood, it authenticates through an AWS Lambda using a password that is only valid for the duration of the artifact evaluation period. This returns authentication tokens to the client, which the client May suses to connect to the staging cluster.
 
 Example output:
 ```sh
